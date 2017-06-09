@@ -1,0 +1,13 @@
+	<table border="0">
+		<tr>
+			<td bgcolor="lightgray">First Name:</td>
+			<td><input ng-model="$ctrl.user.firstName"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightgray">Last Name:</td>
+			<td><input ng-model="$ctrl.user.lastName"/></td>
+		</tr>
+	</table>
+	<button ng-show="!$ctrl.user.id" ng-click="$ctrl.save()">Save</button>
+	<button ng-show="$ctrl.user.id" ng-click="$ctrl.update()">Update</button>
+	<button ng-show="$ctrl.user.id" ng-click="$ctrl.delete()">Delete</button>

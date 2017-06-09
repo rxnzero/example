@@ -1,0 +1,19 @@
+<button ng-click="$ctrl.create()">Create User</button>
+<br/>
+<br/>
+<table border="0">
+	<tr bgcolor="lightgray">
+		<td>ID</td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Action</td>
+	</tr>
+	<tr ng-repeat="user in $ctrl.users">
+		<td>{{user.id}}</td>
+		<td>{{user.firstName}}</td>
+		<td>{{user.lastName}}</td>
+		<td>
+			<button ng-click="$ctrl.edit(user.id)">Edit</button>
+		</td>
+	</tr>
+</table>
