@@ -2,6 +2,9 @@
 import="java.util.*,java.nio.charset.Charset,java.io.*" 
 %><%
     System.out.println("\n>> Read request Data");
+    System.out.println("getRequestURI = " +request.getRequestURI());
+    System.out.println("getRequestURL = " +request.getRequestURL());
+    System.out.println("getContextPath = " +request.getContextPath());
     
     String encode = request.getCharacterEncoding();
     System.out.println("getCharacterEncoding = " +encode);
@@ -30,18 +33,22 @@ import="java.util.*,java.nio.charset.Charset,java.io.*"
     
     System.out.println("[Print request parameters]");
     Enumeration<String> paramNames = request.getParameterNames();
+    
+    String data = "";
 	while (paramNames != null && paramNames.hasMoreElements()) {
         String key = paramNames.nextElement();
         String[] paramValues = request.getParameterValues(key);
         StringBuilder value = new StringBuilder();
 
         if (paramValues != null) {
-        	if(paramValues.length > 0) {
-        		value.append(paramValues[0]);
+            if(paramValues.length > 0) {
+        		data = java.net.URLDecoder.decode(paramValues[0], encode);
+        		value.append(data);
         	}
         	if(paramValues.length > 1) {
 	            for (int p=1; p < paramValues.length; p++) {
-	                value.append(",").append(paramValues[p]);
+	            	data = java.net.URLDecoder.decode(paramValues[p], encode);
+	                value.append(",").append(data);
 	            }
 	    	}
         }
