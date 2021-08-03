@@ -2,6 +2,7 @@
 import="java.util.*,java.nio.charset.Charset,java.io.*" 
 %><%
     System.out.println("\n>> Read request Data");
+    System.out.println("getProtocol = " +request.getProtocol());
     System.out.println("getRequestURI = " +request.getRequestURI());
     System.out.println("getRequestURL = " +request.getRequestURL());
     System.out.println("getContextPath = " +request.getContextPath());
